@@ -1,0 +1,52 @@
+<?xml version="1.0"?>
+<flowgorithm fileversion="4.2">
+    <attributes>
+        <attribute name="name" value="flowchart 3"/>
+        <attribute name="authors" value="ASUS"/>
+        <attribute name="about" value=""/>
+        <attribute name="saved" value="2025-12-17 11:24:17 AM"/>
+        <attribute name="created" value="QVNVUztMQVBUT1AtVjg2OEVPM0M7MjAyNS0xMi0xNzsxMToyMTo1NSBBTTsyNjA3"/>
+        <attribute name="edited" value="QVNVUztMQVBUT1AtVjg2OEVPM0M7MjAyNS0xMi0xNzsxMToyNDowMSBBTTsyO0FTVVM7TEFQVE9QLVY4NjhFTzNDOzIwMjUtMTItMTc7MTE6MjE6MDQgQU07c29hbDNbMV0uZnByZzs2NjIx"/>
+        <attribute name="edited" value="QVNVUztMQVBUT1AtVjg2OEVPM0M7MjAyNS0xMi0xNzsxMToyNDoxNyBBTTsxOzI3MTY="/>
+    </attributes>
+    <function name="Main" type="None" variable="">
+        <parameters/>
+        <body>
+            <declare name="jumlahOrang, i, jumlahBarang, totalOrang, totalKamar" type="Integer" array="False" size=""/>
+            <declare name="nama" type="String" array="False" size=""/>
+            <assign variable="totalKamar" expression="0"/>
+            <input variable="jumlahOrang"/>
+            <output expression="&quot;Total konsumsi:&quot;" newline="True"/>
+            <for variable="i" start="1" end="jumlahOrang" direction="inc" step="1">
+                <input variable="nama"/>
+                <input variable="jumlahBarang"/>
+                <assign variable="totalOrang" expression="HitungTotalBarang(jumlahBarang)"/>
+                <output expression="nama &amp; &quot; = &quot; &amp; totalOrang &amp; &quot; wh&quot;" newline="True"/>
+                <assign variable="totalKamar" expression="totalKamar + totalOrang"/>
+            </for>
+            <output expression="&quot;&quot;" newline="True"/>
+            <output expression="&quot;Total konsumsi kamar = &quot; &amp; totalKamar &amp; &quot; wh&quot;" newline="True"/>
+            <if expression="totalKamar &lt;= 1200">
+                <then>
+                    <output expression="&quot;Konsumsi masih dalam batas wajar.&quot;" newline="True"/>
+                </then>
+                <else>
+                    <output expression="&quot;Konsumsi melebihi batas wajar!&quot;" newline="True"/>
+                </else>
+            </if>
+        </body>
+    </function>
+    <function name="HitungTotalBarang" type="Integer" variable="total">
+        <parameters>
+            <parameter name="banyakItem" type="Integer" array="False"/>
+        </parameters>
+        <body>
+            <declare name="j, nilai, total" type="Integer" array="False" size=""/>
+            <assign variable="total" expression="0"/>
+            <for variable="j" start="1" end="banyakItem" direction="inc" step="1">
+                <input variable="nilai"/>
+                <assign variable="total" expression="total + nilai"/>
+            </for>
+        </body>
+    </function>
+</flowgorithm>

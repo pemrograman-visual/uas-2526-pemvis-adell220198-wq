@@ -1,0 +1,72 @@
+<?xml version="1.0"?>
+<flowgorithm fileversion="4.2">
+    <attributes>
+        <attribute name="name" value="flogo 1"/>
+        <attribute name="authors" value="ASUS"/>
+        <attribute name="about" value=""/>
+        <attribute name="saved" value="2025-12-17 09:05:59 AM"/>
+        <attribute name="created" value="QVNVUztMQVBUT1AtVjg2OEVPM0M7MjAyNS0xMi0xNzswOTowNDowMCBBTTsyNjA1"/>
+        <attribute name="edited" value="QVNVUztMQVBUT1AtVjg2OEVPM0M7MjAyNS0xMi0xNzswOTowNTo0MCBBTTsyO1dJTkRPV1MgMTE7UkFGQUVMU0lTRU1PUzsyMDI1LTEyLTE2OzA5OjMyOjE4IFBNO3NvYWwxWzFdLmZwcmc7Njk3Mg=="/>
+        <attribute name="edited" value="QVNVUztMQVBUT1AtVjg2OEVPM0M7MjAyNS0xMi0xNzswOTowNTo1OSBBTTsxOzI3Mjg="/>
+    </attributes>
+    <function name="Main" type="None" variable="">
+        <parameters/>
+        <body>
+            <declare name="n, i, rating, sum, min, max, countHigh" type="Integer" array="False" size=""/>
+            <declare name="rata" type="Real" array="False" size=""/>
+            <declare name="daftarRating" type="String" array="False" size=""/>
+            <input variable="n"/>
+            <assign variable="sum" expression="0"/>
+            <assign variable="countHigh" expression="0"/>
+            <assign variable="min" expression="100"/>
+            <assign variable="max" expression="-1"/>
+            <assign variable="daftarRating" expression="&quot;Daftar rating:&quot;"/>
+            <for variable="i" start="1" end="n" direction="inc" step="1">
+                <input variable="rating"/>
+                <assign variable="daftarRating" expression="daftarRating &amp; &quot; &quot; &amp; rating"/>
+                <assign variable="sum" expression="sum + rating"/>
+                <if expression="rating &gt; max">
+                    <then>
+                        <assign variable="max" expression="rating"/>
+                    </then>
+                    <else/>
+                </if>
+                <if expression="rating &lt; min">
+                    <then>
+                        <assign variable="min" expression="rating"/>
+                    </then>
+                    <else/>
+                </if>
+                <if expression="rating &gt;= 4">
+                    <then>
+                        <assign variable="countHigh" expression="countHigh + 1"/>
+                    </then>
+                    <else/>
+                </if>
+            </for>
+            <assign variable="rata" expression="sum / n"/>
+            <output expression="daftarRating" newline="True"/>
+            <output expression="&quot;Rata-rata: &quot; &amp; ToFixed(rata, 2)" newline="True"/>
+            <output expression="&quot;Tertinggi: &quot; &amp; max" newline="True"/>
+            <output expression="&quot;Terendah: &quot; &amp; min" newline="True"/>
+            <output expression="&quot;Reviewer rating &gt;=4: &quot; &amp; countHigh &amp; &quot; orang&quot;" newline="True"/>
+            <output expression="CekStatus(rata)" newline="True"/>
+        </body>
+    </function>
+    <function name="Cekstatus" type="String" variable="pesan">
+        <parameters>
+            <parameter name="nilaiRata" type="Real" array="False"/>
+        </parameters>
+        <body>
+            <declare name="pesan" type="String" array="False" size=""/>
+            <if expression="nilaiRata &gt;= 3.0">
+                <then>
+                    <assign variable="pesan" expression="&quot;Kondisi cukup, masih perlu peningkatan.&quot;"/>
+                </then>
+                <else>
+                    <assign variable="pesan" expression="&quot;Kondisi kurang, perlu perbaikan segera.&quot;"/>
+                </else>
+            </if>
+        </body>
+    </function>
+</flowgorithm>
