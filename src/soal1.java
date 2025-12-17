@@ -1,7 +1,7 @@
-6import java.util.*;
+import java.util.*;
 import java.lang.Math;
 
-public class JavaApplication {
+public class soal1 {
     private static Scanner input = new Scanner(System.in);
 
     public static void main(String[] args) {
@@ -54,10 +54,3 @@ public class JavaApplication {
         return String.format("%." + digits + "f", value);
     }
 }
-
-4
-5
-2
-3
-1
-4
